@@ -1,0 +1,19 @@
+# Set up basic authentication to control access to each user's
+# cms directory, as well as the jotz and analytics directories.
+# The following four lines provide everything that's required,
+# apart from a 'Require' directive, which specifies which users
+# are permitted to access a given directory. A user-specific 'Require'
+# directive is supplied within a 1-line .htaccess file in each user's
+# cms directory.
+AuthType Basic
+AuthName "USER_TEMPLATE"
+AuthBasicProvider file
+AuthUserFile /home/user/public_html/.htpasswd
+
+# Set default file to open in each directory
+DirectoryIndex index.php
+
+# Set file upload size limit
+php_value upload_max_filesize 4M
+php_value post_max_size 4M
+

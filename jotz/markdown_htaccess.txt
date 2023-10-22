@@ -1,0 +1,6 @@
+IndexIgnoreReset ON
+
+<Files *>
+  SetHandler None
+</Files>
+

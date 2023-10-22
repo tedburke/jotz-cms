@@ -1,0 +1,1 @@
+../../jotz/cms_settings.php

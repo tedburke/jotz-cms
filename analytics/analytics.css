@@ -1,0 +1,51 @@
+body {
+  font-family: sans;
+  line-height: 1.5;
+}
+
+@media screen and (orientation: landscape) {
+  body {
+    margin-left: 4em;
+    margin-right: 4em; 
+  }
+}
+
+@media screen and (orientation: portrait) {
+  body {
+    margin-left: 2em;
+    margin-right: 2em; 
+  }
+}
+
+pre:not(.asciiart) {
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  background-color: #ddd;
+}
+
+pre.asciiart {
+  font-family: monospace;
+  line-height: 1.2;
+}
+
+textarea {
+  width: 100%;
+  height: calc(100vh - 16em);
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+img {
+  max-width:80%;
+}
+
+table,tr,th,td {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  text-align: center;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
