@@ -8,10 +8,12 @@
 AuthType Basic
 AuthName "USER_TEMPLATE"
 AuthBasicProvider file
-AuthUserFile /home/user/public_html/.htpasswd
+AuthUserFile /usr/www/users/jotzae/robosumo.eu.202425/jotz/.htpasswd
 
 # Set default file to open in each directory
 DirectoryIndex index.php
+
+RedirectMatch ^/$ /cookbook/
 
 # Set file upload size limit
 php_value upload_max_filesize 4M
