@@ -53,3 +53,33 @@ table,tr,th,td {
   padding-right: 1em;
 }
 
+div.article_list_article {
+    clear:both;
+    padding:0.5em 0 0.5em 0;
+}
+
+div.article_list_date {
+    float:left;
+    width:8em;
+    text-align:center;
+}
+
+div.article_list_title {
+    float:left;
+    width:calc(100% - 15em);
+}
+
+div.article_list_separator {
+    clear:both;
+    padding:0.75em 15% 0.5em 15%; 
+}
+
+nav {
+    padding:1em 0 1em 0;
+}
+
+nav > span {
+    padding-left:0.5em;
+    padding-right:0.5em;
+}
+

@@ -39,8 +39,8 @@ echo ($header);
 ?>
 
 <nav>
-&nbsp;&nbsp;&nbsp;<?php echo("<a href=\".\">Home</a>" . PHP_EOL); ?>
-&nbsp;&nbsp;<?php echo("<a href=\"cms\">CMS</a>" . PHP_EOL); ?>
-&nbsp;&nbsp;<span>User: <?php echo($username); ?></span>
+<span><a href=".">Home</a></span>
+<span><a href="cms">CMS</a></span>
+<span>User: <?php echo($username); ?></span>
 </nav>
 
