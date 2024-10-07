@@ -66,7 +66,7 @@ div.article_list_date {
 
 div.article_list_title {
     float:left;
-    width:calc(100% - 15em);
+    width:calc(100% - 10em);
 }
 
 div.article_list_separator {
