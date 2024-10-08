@@ -22,14 +22,13 @@ foreach ($arrFiles as $filename)
   try
   {
     // Try to use the timestamp in the filename
-    $file_time = mktime(
-      substr($filename,9,2),
-      substr($filename,11,2),
-      substr($filename,13,2),
-      substr($filename,6,2),
-      substr($filename,4,2),
-      substr($filename,0,4)
-      );
+    $hour = (int)substr($filename,9,2);
+    $minute = (int)substr($filename,11,2);
+    $second = (int)substr($filename,13,2);
+    $month = (int)substr($filename,4,2);
+    $day = (int)substr($filename,6,2);
+    $year = (int)substr($filename,0,4);
+    $file_time = mktime($hour,$minute,$second,$month,$day,$year);
     $article_date = date("Y-m-d", $file_time);
   }
   catch (Throwable $e)
