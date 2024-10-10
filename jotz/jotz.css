@@ -74,6 +74,11 @@ div.article_list_separator {
     padding:0.75em 15% 0.5em 15%; 
 }
 
+div.article_separator {
+    clear:both;
+    padding:1em 10% 1em 10%; 
+}
+
 nav {
     padding:1em 0 1em 0;
 }

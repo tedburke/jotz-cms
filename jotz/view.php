@@ -75,6 +75,7 @@ foreach ($arrFiles as $filename)
         // Generate HTML from markdown and add to article_html string
         echo("<h1>$article_title</h1>" . PHP_EOL);
         echo($parser->text($article_markdown) . PHP_EOL);
+        echo("<div class=\"article_separator\"><hr></div>" . PHP_EOL);
     }
 }
 
