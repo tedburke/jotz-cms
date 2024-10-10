@@ -5,7 +5,7 @@ $parser = new Parsedown();
 include("header.php");
 
 // Display articles
-$arrFiles = scandir("markdown");
+$arrFiles = scandir("markdown", SCANDIR_SORT_DESCENDING);
 foreach ($arrFiles as $filename)
 {
 	$article_id = "no_id";
@@ -37,7 +37,7 @@ foreach ($arrFiles as $filename)
 			$line = trim($line);
 			if (substr($line, 0, 6) == 'title:')
 			{
-				$article_title = trim(substr($line, 6));
+                $article_title = trim(substr($line, 6));
 				$parse_state = 2;
 			}
 		}
@@ -61,9 +61,21 @@ foreach ($arrFiles as $filename)
 	
 	if ($parse_state < 3) echo ("<p>ERROR: Incomplete metadata in $filename</p>");
   
-	// Generate HTML from markdown and add to article_html string
-	echo("<h1>$article_title</h1>" . PHP_EOL);
-	echo($parser->text($article_markdown) . PHP_EOL);
+    if ($article_title == "#SEPARATOR")
+    {
+        // This is a dummy article included as a separator, so don't
+        // display it's content and skip all remaining files.
+        // i.e. When opened without specifying an article, view.php
+        // displays all articles in reverse chronological order
+        // until it reaches the first #SEPARATOR article.
+        break;
+    }
+    else
+    {
+        // Generate HTML from markdown and add to article_html string
+        echo("<h1>$article_title</h1>" . PHP_EOL);
+        echo($parser->text($article_markdown) . PHP_EOL);
+    }
 }
 
 include("footer.php");
