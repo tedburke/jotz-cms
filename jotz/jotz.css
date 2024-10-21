@@ -89,7 +89,15 @@ nav > span {
 }
 
 div.analytics {
-    text-align: center;
-    padding: 2em;
+    text-align:center;
+    padding:2em;
+}
+
+div.analytics > span.within_limit {
+    color: green;
+}
+
+div.analytics > span.exceeded_limit {
+    color: red;
 }
 

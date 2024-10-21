@@ -50,41 +50,49 @@ $output = null;
 $retval = null;
 $command = 'ls ../markdown/*.md | wc -l';
 exec($command, $output, $retval);
-$article_count = trim($output[0]);
+$articles_count = trim($output[0]);
 
 // Count this user's file uploads
 $output = null;
 $retval = null;
 $command = 'ls ../uploads/* | wc -l';
 exec($command, $output, $retval);
-$upload_count = trim($output[0]);
+$uploads_count = trim($output[0]);
 
 // Get this user's disk usage
 $output = null;
 $retval = null;
-$command = 'du -s ..';
+$command = 'du -s --block-size=1M ..';
 exec($command, $output, $retval);
 $words = preg_split("/[\s,]+/", trim($output[0]));
-$kB_count = $words[0];
+$storage_used_MB = $words[0];
 
-// Count lines, words and characters in this user's articles
+// Count words in this user's articles
 $output = null;
 $retval = null;
-$command = 'cat ../markdown/*.md | wc';
+$command = 'cat ../markdown/*.md | wc -w';
 exec($command, $output, $retval);
-$words = explode(" ", $output[0]);
-while (($word = array_shift($words)) == '');
-$line_count = $word;
-while (($word = array_shift($words)) == '');
-$word_count = $word;
-while (($word = array_shift($words)) == '');
-$character_count = $word;
+$words_count = trim($output[0]);
+
+// Define limits
+// In due course, these limits should be read from a user-specific config file
+$articles_max = 6;
+$words_max = 2400;
+$uploads_max = 24;
+$storage_max_MB = 24;
 
 // Print user stats
-echo("<div class=\"analytics\">" . PHP_EOL);
-echo("Articles: $article_count ($line_count lines, $word_count words, $character_count characters), Uploads: $upload_count, Storage used: $kB_count kB" . PHP_EOL);
+echo("<div class='analytics'>" . PHP_EOL);
+$limit_class = $words_count > $words_max ? "exceeded_limit" : "within_limit";
+echo("<span class='$limit_class'>" . $words_count . " / " . $words_max . " words</span> , ");
+$limit_class = $articles_count > $articles_max ? "exceeded_limit" : "within_limit";
+echo("<span class='$limit_class'>" . $articles_count . " / " . $articles_max . " articles</span> , ");
+$limit_class = $uploads_count > $uploads_max ? "exceeded_limit" : "within_limit";
+echo("<span class='$limit_class'>" . $uploads_count . " / " . $uploads_max . " uploads</span> , ");
+$limit_class = $storage_used_MB > $storage_max_MB ? "exceeded_limit" : "within_limit";
+echo("<span class='$limit_class'>" . $storage_used_MB . " / " . $storage_max_MB . " MB storage used</span>" . PHP_EOL);
 echo ("</div>" . PHP_EOL);
-  
+
 include("footer.php");
 ?>
 
