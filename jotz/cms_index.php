@@ -43,6 +43,51 @@ foreach ($arrFiles as $filename)
   echo "</div>" . PHP_EOL;
 }
 
+// Display analytics for this user's blog
+
+// Count articles
+$output = null;
+$retval = null;
+$command = 'ls ../markdown/*.md | wc -l';
+exec($command, $output, $retval);
+$article_count = trim($output[0]);
+
+// Count this user's file uploads
+$output = null;
+$retval = null;
+$command = 'ls ../uploads/* | wc -l';
+exec($command, $output, $retval);
+$upload_count = trim($output[0]);
+
+// Get this user's disk usage
+$output = null;
+$retval = null;
+$command = 'du -s ..';
+exec($command, $output, $retval);
+$words = preg_split("/[\s,]+/", trim($output[0]));
+$kB_count = $words[0];
+
+// Count lines, words and characters in this user's articles
+$output = null;
+$retval = null;
+$command = 'cat ../markdown/*.md | wc';
+exec($command, $output, $retval);
+$words = explode(" ", $output[0]);
+while (($word = array_shift($words)) == '');
+$line_count = $word;
+while (($word = array_shift($words)) == '');
+$word_count = $word;
+while (($word = array_shift($words)) == '');
+$character_count = $word;
+
+// Print user stats
+echo ("<div class=\"analytics\">" . PHP_EOL);
+echo("Articles: $article_count (");
+echo ("$line_count lines, $word_count words, $character_count characters)<br>" . PHP_EOL);
+echo("Uploads: $upload_count<br>" . PHP_EOL);
+echo("Storage used: $kB_count<br>" . PHP_EOL);
+echo ("</div>" . PHP_EOL);
+  
 include("footer.php");
 ?>
 
