@@ -81,11 +81,8 @@ while (($word = array_shift($words)) == '');
 $character_count = $word;
 
 // Print user stats
-echo ("<div class=\"analytics\">" . PHP_EOL);
-echo("Articles: $article_count (");
-echo ("$line_count lines, $word_count words, $character_count characters)<br>" . PHP_EOL);
-echo("Uploads: $upload_count<br>" . PHP_EOL);
-echo("Storage used: $kB_count<br>" . PHP_EOL);
+echo("<div class=\"analytics\">" . PHP_EOL);
+echo("Articles: $article_count ($line_count lines, $word_count words, $character_count characters), Uploads: $upload_count, Storage used: $kB_count kB" . PHP_EOL);
 echo ("</div>" . PHP_EOL);
   
 include("footer.php");
