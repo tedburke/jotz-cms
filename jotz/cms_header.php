@@ -23,7 +23,7 @@ $username = basename(realpath(".."));
 &nbsp;&nbsp;&nbsp;<a href="..">Home</a>
 &nbsp;&nbsp;<a href="../cms">CMS</a>
 &nbsp;&nbsp;<a href="edit.php">New article</a>
-&nbsp;&nbsp;<a href="upload.php" target="_blank">Upload</a>
+&nbsp;&nbsp;<a href="upload.php" target="jotz_upload">Upload</a>
 &nbsp;&nbsp;<a href="settings.php">Settings</a>
 &nbsp;&nbsp;<span>User: <?php echo($username); ?></span>
 </nav>
