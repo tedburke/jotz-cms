@@ -92,8 +92,8 @@ include("header.php");
   <?php
     if (file_exists("../markdown/$article_id.md"))
     {
-      echo ('&nbsp;&nbsp;<a href="../view.php?mdfile=' . $article_id . '.md" target="jotz_view_post" rel="noopener noreferrer">View post in new tab</a>');
-      echo ('&nbsp;&nbsp;<a href="delete.php?dirname=markdown&filename=' . $article_id . '.md" target="_blank" rel="noopener noreferrer">Delete this post...</a>');
+      echo ('&nbsp;&nbsp;<a href="../view.php?mdfile=' . $article_id . '.md" target="jotz_view_article_tab">View post in new tab</a>');
+      echo ('&nbsp;&nbsp;<a href="delete.php?dirname=markdown&filename=' . $article_id . '.md" target="jotz_delete_article_tab">Delete this post...</a>');
     }
   ?>
 </form>
