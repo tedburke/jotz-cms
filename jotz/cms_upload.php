@@ -37,7 +37,7 @@ foreach (glob('../uploads/*') as $file)
 {
   $rellink = "uploads/" . basename($file);
   $fext = strtolower(substr($rellink, -4)); // file extension
-  echo('<li><a href="../' . $rellink . '">' . basename($file) . '</a>&nbsp;&nbsp;&nbsp;(<a href="delete.php?dirname=uploads&filename=' . basename($file) . '">delete</a>)</li>' . PHP_EOL);
+  echo('<li><a href="../' . $rellink . '">' . basename($file) . '</a>&nbsp;&nbsp;&nbsp;(<a href="delete.php?dirname=uploads&filename=' . basename($file) . '" target="jotz_delete_article_tab">delete</a>)</li>' . PHP_EOL);
 
   if (in_array($fext, array('.jpg', '.png', '.bmp', '.svg', 'jpeg'), true))
   {
