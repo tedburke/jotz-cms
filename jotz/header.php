@@ -9,7 +9,10 @@
   <?php
     if (file_exists('custom/custom.css')) echo ('<link rel="stylesheet" href="custom/custom.css">');
   ?>
-  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+<?php
+$icon_file = file_exists("uploads/favicon.ico") ? "uploads/favicon.ico" : "../favicon.ico";
+?>
+    <link rel="shortcut icon" href="<?php echo($icon_file); ?>" type="image/x-icon" />
   <title><?php echo($username); ?></title>
 </head>
 
