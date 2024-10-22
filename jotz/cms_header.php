@@ -7,7 +7,7 @@ $username = basename(realpath(".."));
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="../jotz.css">
-  <title>Jots CMS <?php echo($username); ?></title>
+  <title>Jotz CMS <?php echo($username); ?></title>
 </head>
 <body>
 
