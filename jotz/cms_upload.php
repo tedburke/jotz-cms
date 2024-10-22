@@ -32,9 +32,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 <h2>Uploaded files</h2>
 
 <?php
+$arrFiles = glob('../uploads/*');
+usort($arrFiles, function($a, $b) {return filectime($b) - filectime($a);});
+
 echo "<ul>" . PHP_EOL;
-foreach (glob('../uploads/*') as $file)
+foreach ($arrFiles as $file)
 {
+  if (is_dir($file)) continue;
+  if (substr(basename($file), 0, 1) == ".") continue;
   $rellink = "uploads/" . basename($file);
   $fext = strtolower(substr($rellink, -4)); // file extension
   echo('<li><a href="../' . $rellink . '">' . basename($file) . '</a>&nbsp;&nbsp;&nbsp;(<a href="delete.php?dirname=uploads&filename=' . basename($file) . '" target="jotz_delete_article_tab">delete</a>)</li>' . PHP_EOL);
