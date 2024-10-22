@@ -7,6 +7,10 @@ $username = basename(realpath(".."));
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="../jotz.css">
+<?php
+$icon_file = file_exists("../uploads/favicon.ico") ? "../uploads/favicon.ico" : "../../favicon.ico";
+?>
+  <link rel="shortcut icon" href="<?php echo($icon_file); ?>" type="image/x-icon" />
   <title>Jotz CMS <?php echo($username); ?></title>
 </head>
 <body>
