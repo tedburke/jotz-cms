@@ -49,7 +49,7 @@ foreach ($users as $user)
   // Get this user's disk usage
   $output = null;
   $retval = null;
-  $command = 'du -s ../' . $user;
+  $command = 'du --exclude=\'trash\' -s ../' . $user;
   exec($command, $output, $retval);
   $words = preg_split("/[\s,]+/", trim($output[0]));
   $kB_count = $words[0];

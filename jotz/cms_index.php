@@ -62,7 +62,7 @@ $uploads_count = trim($output[0]);
 // Get this user's disk usage
 $output = null;
 $retval = null;
-$command = 'du -s --block-size=1M ..';
+$command = 'du --exclude=\'trash\' -s --block-size=1M ..';
 exec($command, $output, $retval);
 $words = preg_split("/[\s,]+/", trim($output[0]));
 $storage_used_MB = $words[0];
