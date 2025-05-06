@@ -21,12 +21,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 }
 ?>
 
-<h2>Upload file</h2>
-
+<p>Select file to upload (max file size 4MB):</p>
 <form action="upload.php" method="post" enctype="multipart/form-data">
-  Select file to upload (max file size 4MB):
   <input type="file" name="file_to_upload" id="file_to_upload">
-  <input type="submit" value="Upload File" name="submit">
+  <input type="submit" value="Upload File" name="submit" id="upload_file_submit">
 </form>
 
 <h2>Uploaded files</h2>

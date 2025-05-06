@@ -1,5 +1,6 @@
 body {
   font-family: sans;
+  font-size: 100%;
   line-height: 1.5;
   margin: auto;
   background-color: #F0F0F0;
@@ -31,11 +32,29 @@ pre.asciiart {
   line-height: 1.2;
 }
 
+input, button {
+  font-family: monospace;
+  font-size: 1.2em;
+}
+
+input[type=file] {
+  background-color: #ddd;
+  border: 1px solid #bbb;
+  width: calc(100% - 12em);
+}
+
+input[type=file]::file-selector-button {
+  font-family: monospace;
+}
+
 textarea {
   width: 100%;
-  height: calc(100vh - 16em);
+  height: calc(100vh - 25em);
   margin-top: 1em;
   margin-bottom: 1em;
+  font-family: monospace;
+  font-size: 1.0em;
+  line-height: 1.5;
 }
 
 img {
