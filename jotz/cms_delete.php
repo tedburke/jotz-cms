@@ -28,7 +28,7 @@ if (isset($_GET['confirmed']) and $_GET['confirmed'] == '1')
 {
   echo "<p>Deleting file $dirname/$filename...";
   //exec("rm ../$dirname/$filename");
-  exec("mv ../$dirname/$filename ../trash/");
+  exec("mv ../$dirname/\"$filename\" ../trash/");
   echo "DONE</p>";
 }
 else
