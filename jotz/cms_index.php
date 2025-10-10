@@ -67,10 +67,10 @@ exec($command, $output, $retval);
 $words = preg_split("/[\s,]+/", trim($output[0]));
 $storage_used_MB = $words[0];
 
-// Count words in this user's articles
+// Count words in this user's articles (using sed to exclude fenced code blocks)
 $output = null;
 $retval = null;
-$command = 'cat ../markdown/*.md | wc -w';
+$command = 'sed -s \'/^```/,/^```/d\' ../markdown/*.md | wc -w';
 exec($command, $output, $retval);
 $words_count = trim($output[0]);
 
